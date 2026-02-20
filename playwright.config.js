@@ -1,4 +1,4 @@
-const { defineConfig } = require("@playwright/test");
+const { defineConfig, devices } = require("@playwright/test");
 
 module.exports = defineConfig({
   testDir: "./tests",
@@ -8,8 +8,16 @@ module.exports = defineConfig({
   },
   projects: [
     {
-      name: "Desktop",
-      use: { viewport: { width: 1280, height: 720 } },
+      name: "Desktop Chrome",
+      use: { ...devices["Desktop Chrome"] },
+    },
+    {
+      name: "Desktop Firefox",
+      use: { ...devices["Desktop Firefox"] },
+    },
+    {
+      name: "Desktop Safari",
+      use: { ...devices["Desktop Safari"] },
     },
     {
       name: "Tablet",
@@ -17,7 +25,7 @@ module.exports = defineConfig({
     },
     {
       name: "Mobile",
-      use: { viewport: { width: 375, height: 667 } },
+      use: { ...devices["iPhone 13"] },
     },
   ],
 });
