@@ -92,4 +92,19 @@ test.describe("Visual and responsive layout", () => {
     );
     expect(borderAfter).not.toBe(borderBefore);
   });
+
+  test("hover effect applies box-shadow", async ({ page }) => {
+    const card = page.locator(".project").first();
+    const shadowBefore = await card.evaluate(
+      (el) => getComputedStyle(el).boxShadow
+    );
+
+    await card.hover();
+
+    const shadowAfter = await card.evaluate(
+      (el) => getComputedStyle(el).boxShadow
+    );
+    expect(shadowAfter).not.toBe(shadowBefore);
+    expect(shadowAfter).not.toBe("none");
+  });
 });
