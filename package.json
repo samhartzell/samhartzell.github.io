@@ -5,7 +5,7 @@
   "description": "Personal portfolio site for Sam Hartzell",
   "scripts": {
     "test": "npm run test:html && npx playwright test --grep-invert @network",
-    "test:html": "html-validate index.html",
+    "test:html": "html-validate index.html board-games/index.html",
     "test:links": "npx playwright test --grep @network",
     "test:visual": "npx playwright test --grep-invert @network",
     "test:all": "npm run test:html && npx playwright test"

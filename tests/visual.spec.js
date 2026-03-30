@@ -21,7 +21,7 @@ test.describe("Visual and responsive layout", () => {
 
   test("all project cards are visible", async ({ page }) => {
     const cards = page.locator(".project");
-    await expect(cards).toHaveCount(4);
+    await expect(cards).toHaveCount(5);
 
     for (const card of await cards.all()) {
       await expect(card).toBeVisible();
@@ -35,12 +35,13 @@ test.describe("Visual and responsive layout", () => {
       "WCPSS SSA Prep",
       "Court Monitor",
       "Writing Tools",
+      "Board Game Dashboards",
     ]);
   });
 
   test("project cards have descriptions", async ({ page }) => {
     const descriptions = page.locator(".project p");
-    await expect(descriptions).toHaveCount(4);
+    await expect(descriptions).toHaveCount(5);
 
     for (const desc of await descriptions.all()) {
       const text = await desc.textContent();
@@ -54,10 +55,11 @@ test.describe("Visual and responsive layout", () => {
     );
 
     expect(links).toEqual([
-      "https://samhartzell.github.io/Science-Olympiad/",
-      "https://samhartzell.github.io/wcpss-ssa-prep/wcpss-ssa-prep.html",
-      "https://samhartzell.github.io/Court-Monitor/",
-      "https://samhartzell.github.io/writing-tools/",
+      "/Science-Olympiad/",
+      "/wcpss-ssa-prep/wcpss-ssa-prep.html",
+      "/Court-Monitor/",
+      "/writing-tools/",
+      "/board-games/",
     ]);
   });
 
