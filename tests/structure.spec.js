@@ -40,7 +40,7 @@ test.describe("Document structure and semantics", () => {
   test("project cards use semantic link elements", async ({ page }) => {
     // Each project should be a link wrapping a heading and description
     const cards = await page.locator("a.project").all();
-    expect(cards.length).toBe(4);
+    expect(cards.length).toBe(5);
 
     for (const card of cards) {
       // Each card should contain a heading

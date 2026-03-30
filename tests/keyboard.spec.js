@@ -13,6 +13,7 @@ test.describe("Keyboard navigation", () => {
       "WCPSS SSA Prep",
       "Court Monitor",
       "Writing Tools",
+      "Board Game Dashboards",
     ];
 
     for (const expectedTitle of expectedOrder) {
