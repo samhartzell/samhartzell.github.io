@@ -3,8 +3,13 @@ const { defineConfig, devices } = require("@playwright/test");
 module.exports = defineConfig({
   testDir: "./tests",
   testMatch: "**/*.spec.js",
+  webServer: {
+    command: "npx serve -l 3000 --no-clipboard",
+    port: 3000,
+    reuseExistingServer: !process.env.CI,
+  },
   use: {
-    baseURL: "file://" + __dirname + "/",
+    baseURL: "http://localhost:3000",
   },
   projects: [
     {
