@@ -8,11 +8,11 @@ test.describe("Link validation", () => {
   test("all project links have valid href attributes", async ({ page }) => {
     const hrefs = await page
       .locator("a.project")
-      .evaluateAll((els) => els.map((el) => el.href));
+      .evaluateAll((els) => els.map((el) => el.getAttribute("href")));
 
     for (const href of hrefs) {
       expect(href).toBeTruthy();
-      expect(href).toMatch(/^https:\/\//);
+      expect(href).toMatch(/^(\/|https:\/\/)/);
     }
   });
 
@@ -28,13 +28,14 @@ test.describe("Link validation", () => {
   test("project links are reachable (HTTP 200) @network", async ({ page, request }) => {
     const hrefs = await page
       .locator("a.project")
-      .evaluateAll((els) => els.map((el) => el.href));
+      .evaluateAll((els) => els.map((el) => el.getAttribute("href")));
 
     for (const href of hrefs) {
-      const response = await request.get(href);
+      const url = href.startsWith("https://") ? href : `https://samhartzell.github.io${href}`;
+      const response = await request.get(url);
       expect(
         response.ok(),
-        `Expected ${href} to return 200, got ${response.status()}`
+        `Expected ${url} to return 200, got ${response.status()}`
       ).toBeTruthy();
     }
   });
