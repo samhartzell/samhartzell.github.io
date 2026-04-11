@@ -21,8 +21,10 @@ module.exports = defineConfig({
       use: { viewport: { width: 768, height: 1024 } },
     },
     {
+      // Use a Chromium-based mobile device because CI only installs the
+      // chromium browser (see .github/workflows/test.yml).
       name: "Mobile",
-      use: { ...devices["iPhone 13"] },
+      use: { ...devices["Pixel 5"] },
     },
   ],
 });

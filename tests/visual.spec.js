@@ -91,10 +91,14 @@ test.describe("Visual and responsive layout", () => {
 
     await card.hover();
 
-    const borderAfter = await card.evaluate(
-      (el) => getComputedStyle(el).borderColor
-    );
-    expect(borderAfter).not.toBe(borderBefore);
+    // The border-color is animated by a 0.15s CSS transition, so the change
+    // is not visible in the very first frame after hover. Poll until the
+    // computed value reflects the :hover state.
+    await expect
+      .poll(() =>
+        card.evaluate((el) => getComputedStyle(el).borderColor)
+      )
+      .not.toBe(borderBefore);
   });
 
   test("hover effect applies box-shadow", async ({ page }) => {
