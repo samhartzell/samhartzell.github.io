@@ -21,7 +21,7 @@ test.describe("Visual and responsive layout", () => {
 
   test("all project cards are visible", async ({ page }) => {
     const cards = page.locator(".project");
-    await expect(cards).toHaveCount(5);
+    await expect(cards).toHaveCount(6);
 
     for (const card of await cards.all()) {
       await expect(card).toBeVisible();
@@ -34,6 +34,7 @@ test.describe("Visual and responsive layout", () => {
       "Science Olympiad",
       "WCPSS SSA Prep",
       "Court Monitor",
+      "CA4 Tracker",
       "Writing Tools",
       "Board Game Dashboards",
     ]);
@@ -41,7 +42,7 @@ test.describe("Visual and responsive layout", () => {
 
   test("project cards have descriptions", async ({ page }) => {
     const descriptions = page.locator(".project p");
-    await expect(descriptions).toHaveCount(5);
+    await expect(descriptions).toHaveCount(6);
 
     for (const desc of await descriptions.all()) {
       const text = await desc.textContent();
@@ -58,6 +59,7 @@ test.describe("Visual and responsive layout", () => {
       "/Science-Olympiad/",
       "/wcpss-ssa-prep/wcpss-ssa-prep.html",
       "/Court-Monitor/",
+      "https://samhartzell.github.io/CA4-Calendar/",
       "/writing-tools/",
       "/board-games/",
     ]);
