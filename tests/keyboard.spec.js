@@ -12,6 +12,7 @@ test.describe("Keyboard navigation", () => {
       "Science Olympiad",
       "WCPSS SSA Prep",
       "Court Monitor",
+      "CA4 Tracker",
       "Writing Tools",
       "Board Game Dashboards",
     ];
