@@ -21,7 +21,7 @@ test.describe("Visual and responsive layout", () => {
 
   test("all project cards are visible", async ({ page }) => {
     const cards = page.locator(".project");
-    await expect(cards).toHaveCount(6);
+    await expect(cards).toHaveCount(8);
 
     for (const card of await cards.all()) {
       await expect(card).toBeVisible();
@@ -37,12 +37,14 @@ test.describe("Visual and responsive layout", () => {
       "CA4 Tracker",
       "Writing Tools",
       "Board Game Dashboards",
+      "NC Federal Local Rules",
+      "AI Prompt Library",
     ]);
   });
 
   test("project cards have descriptions", async ({ page }) => {
     const descriptions = page.locator(".project p");
-    await expect(descriptions).toHaveCount(6);
+    await expect(descriptions).toHaveCount(8);
 
     for (const desc of await descriptions.all()) {
       const text = await desc.textContent();
@@ -62,6 +64,8 @@ test.describe("Visual and responsive layout", () => {
       "https://samhartzell.github.io/CA4-Calendar/",
       "/writing-tools/",
       "/board-games/",
+      "https://samhartzell.github.io/NC-USDC-Rules/",
+      "https://samhartzell.github.io/AI-prompt-library/",
     ]);
   });
 
