@@ -19,6 +19,13 @@ test.describe("Visual and responsive layout", () => {
     await expect(heading).toHaveText("Sam Hartzell");
   });
 
+  test("projects are grouped into labeled categories", async ({ page }) => {
+    const categoryLabels = await page
+      .locator("section.category > h2")
+      .allTextContents();
+    expect(categoryLabels).toEqual(["Legal Tools", "Learning", "Games"]);
+  });
+
   test("all project cards are visible", async ({ page }) => {
     const cards = page.locator(".project");
     await expect(cards).toHaveCount(8);
@@ -29,16 +36,16 @@ test.describe("Visual and responsive layout", () => {
   });
 
   test("project cards have correct titles", async ({ page }) => {
-    const titles = await page.locator(".project h2").allTextContents();
+    const titles = await page.locator(".project h3").allTextContents();
     expect(titles).toEqual([
-      "Science Olympiad",
-      "WCPSS SSA Prep",
       "Court Monitor",
       "CA4 Tracker",
       "Writing Tools",
-      "Board Game Dashboards",
       "NC Federal Local Rules",
       "AI Prompt Library",
+      "Science Olympiad",
+      "WCPSS SSA Prep",
+      "Board Game Dashboards",
     ]);
   });
 
@@ -58,14 +65,14 @@ test.describe("Visual and responsive layout", () => {
     );
 
     expect(links).toEqual([
-      "/Science-Olympiad/",
-      "/wcpss-ssa-prep/wcpss-ssa-prep.html",
       "/Court-Monitor/",
       "https://samhartzell.github.io/CA4-Calendar/",
       "/writing-tools/",
-      "/board-games/",
       "https://samhartzell.github.io/NC-USDC-Rules/",
       "https://samhartzell.github.io/AI-prompt-library/",
+      "/Science-Olympiad/",
+      "/wcpss-ssa-prep/wcpss-ssa-prep.html",
+      "/board-games/",
     ]);
   });
 
@@ -118,5 +125,15 @@ test.describe("Visual and responsive layout", () => {
     );
     expect(shadowAfter).not.toBe(shadowBefore);
     expect(shadowAfter).not.toBe("none");
+  });
+
+  test("footer contact links are present", async ({ page }) => {
+    const footerLinks = await page
+      .locator("footer.site-footer a")
+      .evaluateAll((els) => els.map((el) => el.getAttribute("href")));
+    expect(footerLinks).toContain("https://github.com/samhartzell");
+    expect(footerLinks).toContain(
+      "https://github.com/samhartzell/samhartzell.github.io"
+    );
   });
 });

@@ -44,7 +44,7 @@ test.describe("Document structure and semantics", () => {
 
     for (const card of cards) {
       // Each card should contain a heading
-      const headingCount = await card.locator("h2").count();
+      const headingCount = await card.locator("h3").count();
       expect(headingCount).toBe(1);
 
       // Each card should contain a paragraph
