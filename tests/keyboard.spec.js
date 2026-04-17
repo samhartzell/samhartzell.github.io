@@ -5,23 +5,25 @@ test.describe("Keyboard navigation", () => {
     await page.goto("index.html");
   });
 
-  test("Tab key navigates through all project links in order", async ({
+  test("Tab key navigates through the skip link then all project links in DOM order", async ({
     page,
   }) => {
-    const expectedOrder = [
-      "Science Olympiad",
-      "WCPSS SSA Prep",
-      "Court Monitor",
-      "CA4 Tracker",
-      "Writing Tools",
-      "Board Game Dashboards",
-    ];
+    const expectedOrder = await page
+      .locator("a.project h3")
+      .allTextContents();
+    expect(expectedOrder.length).toBeGreaterThan(0);
 
+    // First Tab focuses the skip link
+    await page.keyboard.press("Tab");
+    const skipLink = page.locator(":focus");
+    await expect(skipLink).toHaveAttribute("href", "#main");
+
+    // Subsequent Tabs focus each project card in order
     for (const expectedTitle of expectedOrder) {
       await page.keyboard.press("Tab");
       const focused = page.locator(":focus");
       await expect(focused).toHaveAttribute("href", /.+/);
-      const heading = focused.locator("h2");
+      const heading = focused.locator("h3");
       await expect(heading).toHaveText(expectedTitle);
     }
   });
@@ -29,7 +31,8 @@ test.describe("Keyboard navigation", () => {
   test("focused project cards have a visible focus indicator", async ({
     page,
   }) => {
-    // Tab to the first link
+    // Tab past the skip link, then to the first project card
+    await page.keyboard.press("Tab");
     await page.keyboard.press("Tab");
     const focused = page.locator("a.project:focus");
 
@@ -58,12 +61,15 @@ test.describe("Keyboard navigation", () => {
   });
 
   test("Enter key activates a focused project link", async ({ page }) => {
+    // Tab past the skip link, then to the first project card
+    await page.keyboard.press("Tab");
     await page.keyboard.press("Tab");
     const focused = page.locator(":focus");
     const href = await focused.getAttribute("href");
+    expect(href).toBeTruthy();
 
     // Pressing Enter on a focused <a> should trigger navigation
-    const [response] = await Promise.all([
+    await Promise.all([
       page.waitForEvent("framenavigated").catch(() => null),
       page.keyboard.press("Enter"),
     ]);
