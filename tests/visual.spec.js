@@ -23,12 +23,17 @@ test.describe("Visual and responsive layout", () => {
     const categoryLabels = await page
       .locator("section.category > h2")
       .allTextContents();
-    expect(categoryLabels).toEqual(["Legal Tools", "Learning", "Games"]);
+    expect(categoryLabels).toEqual([
+      "Legal Tools",
+      "Learning",
+      "Stargazing",
+      "Games",
+    ]);
   });
 
   test("all project cards are visible", async ({ page }) => {
     const cards = page.locator(".project");
-    await expect(cards).toHaveCount(8);
+    await expect(cards).toHaveCount(9);
 
     for (const card of await cards.all()) {
       await expect(card).toBeVisible();
@@ -45,13 +50,14 @@ test.describe("Visual and responsive layout", () => {
       "AI Prompt Library",
       "Science Olympiad",
       "WCPSS SSA Prep",
+      "Mordecai Observatory",
       "Board Game Dashboards",
     ]);
   });
 
   test("project cards have descriptions", async ({ page }) => {
     const descriptions = page.locator(".project p");
-    await expect(descriptions).toHaveCount(8);
+    await expect(descriptions).toHaveCount(9);
 
     for (const desc of await descriptions.all()) {
       const text = await desc.textContent();
@@ -72,6 +78,7 @@ test.describe("Visual and responsive layout", () => {
       "https://samhartzell.github.io/AI-prompt-library/",
       "/Science-Olympiad/",
       "/wcpss-ssa-prep/wcpss-ssa-prep.html",
+      "https://samhartzell.github.io/mordecai-observatory/",
       "/board-games/",
     ]);
   });
