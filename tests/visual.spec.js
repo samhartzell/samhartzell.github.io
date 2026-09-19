@@ -27,13 +27,14 @@ test.describe("Visual and responsive layout", () => {
       "Legal Tools",
       "Learning",
       "Stargazing",
+      "Sports",
       "Games",
     ]);
   });
 
   test("all project cards are visible", async ({ page }) => {
     const cards = page.locator(".project");
-    await expect(cards).toHaveCount(9);
+    await expect(cards).toHaveCount(10);
 
     for (const card of await cards.all()) {
       await expect(card).toBeVisible();
@@ -51,13 +52,14 @@ test.describe("Visual and responsive layout", () => {
       "Science Olympiad",
       "WCPSS SSA Prep",
       "Mordecai Observatory",
+      "Challenge League Power Rankings",
       "Board Game Dashboards",
     ]);
   });
 
   test("project cards have descriptions", async ({ page }) => {
     const descriptions = page.locator(".project p");
-    await expect(descriptions).toHaveCount(9);
+    await expect(descriptions).toHaveCount(10);
 
     for (const desc of await descriptions.all()) {
       const text = await desc.textContent();
@@ -79,6 +81,7 @@ test.describe("Visual and responsive layout", () => {
       "/Science-Olympiad/",
       "/wcpss-ssa-prep/wcpss-ssa-prep.html",
       "https://samhartzell.github.io/mordecai-observatory/",
+      "https://samhartzell.github.io/ncfc-power-rankings/",
       "/board-games/",
     ]);
   });
