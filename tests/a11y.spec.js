@@ -59,4 +59,25 @@ test.describe("Accessibility", () => {
 
     expect(results.violations).toEqual([]);
   });
+
+  test("text has sufficient color contrast in dark mode", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "dark" });
+    await page.goto("index.html");
+
+    const results = await new AxeBuilder({ page })
+      .withRules(["color-contrast"])
+      .analyze();
+
+    expect(results.violations).toEqual([]);
+  });
+
+  for (const path of ["board-games/", "404.html"]) {
+    test(`${path} has no accessibility violations`, async ({ page }) => {
+      await page.goto(path);
+
+      const results = await new AxeBuilder({ page }).analyze();
+
+      expect(results.violations).toEqual([]);
+    });
+  }
 });

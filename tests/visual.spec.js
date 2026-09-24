@@ -26,9 +26,7 @@ test.describe("Visual and responsive layout", () => {
     expect(categoryLabels).toEqual([
       "Legal Tools",
       "Learning",
-      "Stargazing",
-      "Sports",
-      "Games",
+      "Hobbies",
     ]);
   });
 
@@ -74,14 +72,14 @@ test.describe("Visual and responsive layout", () => {
 
     expect(links).toEqual([
       "/Court-Monitor/",
-      "https://samhartzell.github.io/CA4-Calendar/",
+      "/CA4-Calendar/",
       "/writing-tools/",
-      "https://samhartzell.github.io/NC-USDC-Rules/",
-      "https://samhartzell.github.io/AI-prompt-library/",
+      "/NC-USDC-Rules/",
+      "/AI-prompt-library/",
       "/Science-Olympiad/",
       "/wcpss-ssa-prep/wcpss-ssa-prep.html",
-      "https://samhartzell.github.io/mordecai-observatory/",
-      "https://samhartzell.github.io/ncfc-power-rankings/",
+      "/mordecai-observatory/",
+      "/ncfc-power-rankings/",
       "/board-games/",
     ]);
   });

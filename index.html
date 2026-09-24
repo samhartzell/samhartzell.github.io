@@ -3,205 +3,89 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sam Hartzell's project portfolio featuring Science Olympiad, WCPSS SSA Prep, Court Monitor, CA4 Tracker, Writing Tools, Board Game Dashboards, NC Federal Local Rules, Mordecai Observatory, Challenge League Power Rankings, and an AI Prompt Library.">
-    <meta property="og:title" content="Sam Hartzell">
-    <meta property="og:description" content="Sam Hartzell's project portfolio featuring Science Olympiad, WCPSS SSA Prep, Court Monitor, CA4 Tracker, Writing Tools, Board Game Dashboards, NC Federal Local Rules, Mordecai Observatory, Challenge League Power Rankings, and an AI Prompt Library.">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <title>Sam Hartzell</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background-color: #f5f5f5;
-        color: #333;
-      }
-      .skip-link {
-        position: absolute;
-        left: -9999px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-      }
-      .skip-link:focus {
-        position: static;
-        width: auto;
-        height: auto;
-        display: inline-block;
-        margin: 12px;
-        padding: 8px 12px;
-        background: #2a3f5f;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 4px;
-      }
-      .container {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 64px 24px;
-      }
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 300;
-        margin: 0 0 8px;
-      }
-      .tagline {
-        color: #666;
-        font-size: 1.1rem;
-        margin: 0 0 48px;
-      }
-      .category {
-        margin-bottom: 32px;
-      }
-      .category:last-of-type {
-        margin-bottom: 0;
-      }
-      .category h2 {
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: #2a3f5f;
-        margin: 0 0 12px;
-      }
-      .projects {
-        display: grid;
-        gap: 16px;
-      }
-      .project {
-        display: block;
-        padding: 24px;
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        text-decoration: none;
-        color: inherit;
-        transition: border-color 0.15s, box-shadow 0.15s;
-      }
-      .project:hover {
-        border-color: #2a3f5f;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      }
-      .project:focus-visible {
-        outline: 2px solid #2a3f5f;
-        outline-offset: 2px;
-        border-color: #2a3f5f;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      }
-      .project h3 {
-        font-size: 1.15rem;
-        font-weight: 600;
-        margin: 0 0 6px;
-      }
-      .project p {
-        margin: 0;
-        color: #555;
-        font-size: 0.95rem;
-        line-height: 1.5;
-      }
-      .site-footer {
-        margin-top: 48px;
-        padding-top: 24px;
-        border-top: 1px solid #e0e0e0;
-        color: #666;
-        font-size: 0.9rem;
-      }
-      .site-footer a {
-        color: #2a3f5f;
-        text-decoration: none;
-      }
-      .site-footer a:hover,
-      .site-footer a:focus-visible {
-        text-decoration: underline;
-      }
-      .site-footer ul {
-        list-style: none;
-        padding: 0;
-        margin: 8px 0 0;
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-    </style>
+    <meta name="description" content="Tools Sam Hartzell has built for legal practice, learning, and hobbies: Court Monitor, CA4 Tracker, NC Federal Local Rules, Science Olympiad study tools, Mordecai Observatory, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samhartzell.github.io/">
+    <meta property="og:title" content="Sam Hartzell">
+    <meta property="og:description" content="Tools Sam Hartzell has built for legal practice, learning, and hobbies.">
+    <meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121416" media="(prefers-color-scheme: dark)">
+    <link rel="canonical" href="https://samhartzell.github.io/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&amp;display=swap">
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <main id="main" class="container">
-      <h1>Sam Hartzell</h1>
-      <p class="tagline">Projects</p>
+      <header class="site-header">
+        <h1>Sam Hartzell</h1>
+        <p class="tagline">Attorney in Raleigh, North Carolina. These are tools I’ve built for legal practice, for learning, and for fun.</p>
+      </header>
 
-      <section class="category">
-        <h2>Legal Tools</h2>
+      <section class="category" aria-labelledby="cat-legal">
+        <h2 id="cat-legal">Legal Tools</h2>
         <div class="projects">
           <a class="project" href="/Court-Monitor/">
-            <h3>Court Monitor</h3>
-            <p>An automated digest of newly published court opinions from federal and North Carolina courts, delivering AI-powered summaries ranked by relevance.</p>
+            <h3 class="project-title">Court Monitor</h3>
+            <p>An automated digest of new federal and North Carolina opinions, with AI summaries ranked by relevance.</p>
           </a>
-          <a class="project" href="https://samhartzell.github.io/CA4-Calendar/">
-            <h3>CA4 Tracker</h3>
-            <p>A live dashboard tracking every case argued before the U.S. Court of Appeals for the Fourth Circuit, with oral argument schedules, panel assignments, audio, and dispositions.</p>
+          <a class="project" href="/CA4-Calendar/">
+            <h3 class="project-title">CA4 Tracker</h3>
+            <p>Every case argued in the Fourth Circuit: argument calendars, panels, audio, and dispositions.</p>
           </a>
           <a class="project" href="/writing-tools/">
-            <h3>Writing Tools</h3>
-            <p>Free utilities for legal professionals, featuring a legal title case converter and a citation compliance checker for ellipses, signals, abbreviations, page ranges, and more.</p>
+            <h3 class="project-title">Writing Tools</h3>
+            <p>A legal title-case converter and a citation checker for ellipses, signals, abbreviations, and page ranges.</p>
           </a>
-          <a class="project" href="https://samhartzell.github.io/NC-USDC-Rules/">
-            <h3>NC Federal Local Rules</h3>
-            <p>A searchable side-by-side comparison of the local rules of North Carolina's Eastern, Middle, and Western federal district courts, so practitioners can spot procedural differences without juggling three PDFs.</p>
+          <a class="project" href="/NC-USDC-Rules/">
+            <h3 class="project-title">NC Federal Local Rules</h3>
+            <p>The Eastern, Middle, and Western District local rules side by side and searchable, in place of three PDFs.</p>
           </a>
-          <a class="project" href="https://samhartzell.github.io/AI-prompt-library/">
-            <h3>AI Prompt Library</h3>
-            <p>A curated collection of Claude prompts for legal professionals, organized by practice area for tasks like case summaries, memo drafting, contract review, and document editing.</p>
+          <a class="project" href="/AI-prompt-library/">
+            <h3 class="project-title">AI Prompt Library</h3>
+            <p>Claude prompts for legal work, organized by practice area: case summaries, memos, contract review, and editing.</p>
           </a>
         </div>
       </section>
 
-      <section class="category">
-        <h2>Learning</h2>
+      <section class="category" aria-labelledby="cat-learning">
+        <h2 id="cat-learning">Learning</h2>
         <div class="projects">
           <a class="project" href="/Science-Olympiad/">
-            <h3>Science Olympiad</h3>
-            <p>An interactive study platform for Science Olympiad NC Division A competitors, featuring paleontology specimen identification and cipher practice with progress tracking.</p>
+            <h3 class="project-title">Science Olympiad</h3>
+            <p>Study tools for NC Division A: paleontology specimen identification and cipher practice, with progress tracking.</p>
           </a>
           <a class="project" href="/wcpss-ssa-prep/wcpss-ssa-prep.html">
-            <h3>WCPSS SSA Prep</h3>
-            <p>A math practice tool for students preparing for standardized assessments, with questions across multiple skill domains, adaptive difficulty, and immediate feedback.</p>
+            <h3 class="project-title">WCPSS SSA Prep</h3>
+            <p>Adaptive math practice for standardized assessments, with instant feedback across skill domains.</p>
           </a>
         </div>
       </section>
 
-      <section class="category">
-        <h2>Stargazing</h2>
+      <section class="category" aria-labelledby="cat-hobbies">
+        <h2 id="cat-hobbies">Hobbies</h2>
         <div class="projects">
-          <a class="project" href="https://samhartzell.github.io/mordecai-observatory/">
-            <h3>Mordecai Observatory</h3>
-            <p>An observing dashboard for a Celestron NexStar 8SE in a Raleigh backyard, pairing hour-by-hour cloud and moon forecasts with a ranked list of what to point at tonight, a seven-night outlook, and a red-light mode for use at the eyepiece.</p>
+          <a class="project" href="/mordecai-observatory/">
+            <h3 class="project-title">Mordecai Observatory</h3>
+            <p>Hour-by-hour cloud and moon forecasts for a backyard NexStar 8SE, a ranked list of tonight’s targets, and a red-light mode.</p>
           </a>
-        </div>
-      </section>
-
-      <section class="category">
-        <h2>Sports</h2>
-        <div class="projects">
-          <a class="project" href="https://samhartzell.github.io/ncfc-power-rankings/">
-            <h3>Challenge League Power Rankings</h3>
-            <p>Opponent-adjusted rankings for the NCFC Youth Challenge league, blending Colley and Massey ratings so a one-goal win over the division leader counts for more than a four-goal win over the last-place team, with strength-of-schedule context and projected margins for each team's next match.</p>
+          <a class="project" href="/ncfc-power-rankings/">
+            <h3 class="project-title">Challenge League Power Rankings</h3>
+            <p>Opponent-adjusted NCFC Youth Challenge rankings, so a one-goal win over the leader counts for more than a blowout of last place.</p>
           </a>
-        </div>
-      </section>
-
-      <section class="category">
-        <h2>Games</h2>
-        <div class="projects">
           <a class="project" href="/board-games/">
-            <h3>Board Game Dashboards</h3>
-            <p>Interactive scoring and tracking dashboards for board games, starting with a Terraforming Mars companion app for managing resources, milestones, and victory points.</p>
+            <h3 class="project-title">Board Game Dashboards</h3>
+            <p>Scoring companions for the table, starting with Terraforming Mars resources, milestones, and points.</p>
           </a>
         </div>
       </section>
 
       <footer class="site-footer">
-        <p>Built by Sam Hartzell.</p>
+        <p>Sam Hartzell · Raleigh, NC</p>
         <ul>
           <li><a href="https://github.com/samhartzell">GitHub</a></li>
           <li><a href="https://github.com/samhartzell/samhartzell.github.io">Site source</a></li>
